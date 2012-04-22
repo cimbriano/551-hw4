@@ -19,11 +19,14 @@ print "$command\n";
 print "</pre>";
 print end_html;
 
+#sanitize a user-inputted string
 sub sanitize {
     my $html = HTML::Entities::decode(shift);
 
-    $html =~ s/[;|&&|\|\|].*//g;
+    #remove all characters which are not word characters, spaces, dashes
+    #or commas
     $html =~ s/[^\w \-,]//g; 
 
+    #return the sanitized string
     return $html;
 }
