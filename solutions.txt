@@ -2,7 +2,7 @@ CIS551, Computing and Network Security, Spring 2012
 Chris Imbriano and Dustin Zelle
 April 24, 2011
 
-* Attacks carried out using FireFox 11.0.
+* Attacks carried out using Firefox 11.0.
 
 A)
   The Attack)
@@ -34,14 +34,15 @@ C)
     service-attack.html and steal.cgi are included.
 
   Security Flaws)
-    * Code injection protection was very weak.  Used black-listing technique for user input sanitation.
-        - Subverting the protection merely required adding an extra space to the <script> tag.
+    * Code injection protection was very weak. Used black-listing technique for user input sanitation.
+        - Subverting the protection merely required adding an extra space to the "</script>" tag (like in part B).
     * Keeping the session token in plain text in the cookie is unadvisable.
+    	- Cookie text could be encrypted to at least obfuscate token.
     * Not checking the HTTP referer allowed the CSRF.
-    * Cookie is not assigned a value for the Expires field.
+    * Cookie is not assigned a value for the "Expires" field.
         - Cookie should expire within some reasonable time limit to protect user from long-term CSRF.
     * Entire service including login takes place over HTTP instead of HTTPS.
-    * Username and Token need not be both in the cookie.
-        - Server could map token to user data.
+    * Username and Token need not be both in the cookie (should enforce a need-to-know policy).
+        - Server could map token to user data server side.
     * Server doesn't validate critical actions taken by forms.
         - Server could issue action token when generating HTML forms.
