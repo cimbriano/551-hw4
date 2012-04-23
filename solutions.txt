@@ -9,7 +9,7 @@ A)
     http://<IP>/cgi-bin/web-ls.cgi?dir=html%20%3E%20%2Fdev%2Fnull%3Bcat%20%2Fetc%2Fpasswd
   
   The Fix)
-    web-ls-safe.cgi is included
+    web-ls-safe.cgi is included.
 
 B) 
     Name: <script type="text/javascript">/*
@@ -30,6 +30,18 @@ B)
     * We viewed source on the client side only.
 
 C)
-  The Attack) service-attack.html and steal.cgi are included.
+  The Attack) 
+    service-attack.html and steal.cgi are included.
 
-  2) 
+  Security Flaws)
+    * Code injection protection was very weak.  Used black-listing technique for user input sanitation.
+        - Subverting the protection merely required adding an extra space to the <script> tag
+    * Keeping the session token in plain text in the cookie is unadvisable
+    * Not checking the HTTP referer allowed the CSRF
+    * Cookie is not assigned a value for the Expires field
+        - Cookie should expire within some reasonable time limit to protect user from long-term CSRF
+    * Entire service including login takes place over HTTP instead of HTTPS
+    * Username and Token need not be both in the cookie
+        - Server could map token to user data
+    * Server doesn't validate critical actions taken by forms
+        - Server could issue action token when generating HTML forms
