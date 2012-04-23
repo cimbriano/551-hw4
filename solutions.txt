@@ -2,7 +2,7 @@ CIS551, Computing and Network Security, Spring 2012
 Chris Imbriano and Dustin Zelle
 April 24, 2011
 
-* Attacks carried out using FireFox 11.0
+* Attacks carried out using FireFox 11.0.
 
 A)
   The Attack)
@@ -35,13 +35,13 @@ C)
 
   Security Flaws)
     * Code injection protection was very weak.  Used black-listing technique for user input sanitation.
-        - Subverting the protection merely required adding an extra space to the <script> tag
-    * Keeping the session token in plain text in the cookie is unadvisable
-    * Not checking the HTTP referer allowed the CSRF
-    * Cookie is not assigned a value for the Expires field
-        - Cookie should expire within some reasonable time limit to protect user from long-term CSRF
-    * Entire service including login takes place over HTTP instead of HTTPS
-    * Username and Token need not be both in the cookie
-        - Server could map token to user data
-    * Server doesn't validate critical actions taken by forms
-        - Server could issue action token when generating HTML forms
+        - Subverting the protection merely required adding an extra space to the <script> tag.
+    * Keeping the session token in plain text in the cookie is unadvisable.
+    * Not checking the HTTP referer allowed the CSRF.
+    * Cookie is not assigned a value for the Expires field.
+        - Cookie should expire within some reasonable time limit to protect user from long-term CSRF.
+    * Entire service including login takes place over HTTP instead of HTTPS.
+    * Username and Token need not be both in the cookie.
+        - Server could map token to user data.
+    * Server doesn't validate critical actions taken by forms.
+        - Server could issue action token when generating HTML forms.
